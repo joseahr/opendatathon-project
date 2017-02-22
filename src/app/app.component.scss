@@ -1,0 +1,13 @@
+.spacer {
+  // This fills the remaining space, by using flexbox. 
+  // Every toolbar row uses a flexbox row layout.
+  -webkit-box-flex : 1;
+  -ms-flex : 1 1 auto;
+  flex : 1 1 auto;
+}
+
+.user-actions img {
+  max-height: 30px;
+  float: right;
+  border-radius: 15px;
+}

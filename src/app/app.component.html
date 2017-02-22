@@ -1,0 +1,44 @@
+<md-toolbar color="primary">
+  <span>OpenDatathon</span>
+  <span class="spacer"></span>
+  <div *ngIf="authUser" class="user-actions">
+    <img src="{{authUser.auth.photoURL}}">
+  </div>
+  <button md-icon-button [mdMenuTriggerFor]="menu">
+    <md-icon>more_vert</md-icon>
+  </button>
+  <md-menu #menu="mdMenu">
+    <button md-menu-item *ngIf="!authUser" (click)="login()">
+      <md-icon>fingerprint</md-icon>
+      <span>Login</span>
+    </button>
+    <button md-menu-item *ngIf="authUser" (click)="logout()">
+      <md-icon>fingerprint</md-icon>
+      <span>Logout</span>
+    </button>
+    <button md-menu-item>
+      <md-icon>fingerprint</md-icon>
+      <span>Acerca de</span>
+    </button>
+  </md-menu>
+</md-toolbar>
+
+<md-tab-group>
+  <md-tab label="Mapa">
+    <app-map></app-map>
+  </md-tab>
+  <md-tab label="Configuración">
+    loremipsun <br>
+    rlkfeñlkerlk4<br>
+    fñkerñlkerf<br>
+    ñflkñlrekñlkerf<br>
+    feñlkefñlker<br>
+    freñlfekñlkef4<br>
+    f´lkeñlrkflerk<br>
+    feñfreñlkerfñlm<br>
+    ñfemñemrfre<br>
+    mñlfmreñlerm<br>
+    lkmferklm<br>
+
+  </md-tab>
+</md-tab-group>
