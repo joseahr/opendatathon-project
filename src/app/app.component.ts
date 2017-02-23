@@ -12,7 +12,7 @@ import { AngularFire, FirebaseAuthState } from 'angularfire2';
 })
 export class AppComponent {
 
-  private authUser : FirebaseAuthState;
+  private authUser : FirebaseAuthState = null;
 
   constructor(private authService : AuthService, private angularFire : AngularFire){
     this.angularFire.auth.subscribe(
