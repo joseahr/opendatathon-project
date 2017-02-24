@@ -1,24 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ValenbisiService } from '../services/valenbisi.service';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-valenbisi-list',
   templateUrl: './valenbisi-list.component.html',
-  styleUrls: ['./valenbisi-list.component.scss'],
-  providers: [ValenbisiService]
+  styleUrls: ['./valenbisi-list.component.scss']
 })
 export class ValenbisiListComponent implements OnInit {
 
-  features : any[];
+  @Input('vbData') vbData = {features : []};
 
-  constructor(private valenbisiService : ValenbisiService) {
-    this.valenbisiService.getValenBisiData()
-    .subscribe(
-      data => { this.features = data.json().features; }
-    )
-  }
+  constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

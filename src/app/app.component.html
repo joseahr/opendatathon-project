@@ -1,16 +1,18 @@
 <md-toolbar color="primary">
   <span>OpenDatathon</span>
   <span class="spacer"></span>
-  <div *ngIf="authUser" class="user-actions">
-    <button md-button [mdMenuTriggerFor]="userDetailsMenu"><img src="{{authUser.auth.photoURL}}"></button>
-  </div>
+  <button *ngIf="authUser" md-icon-button href="#" [mdMenuTriggerFor]="userDetailsMenu" (click)="$event.preventDefault()">
+    <img src="{{authUser.auth.photoURL}}">
+  </button>
   <button md-icon-button [mdMenuTriggerFor]="menu">
     <md-icon>more_vert</md-icon>
   </button>
   <md-menu #userDetailsMenu="mdMenu">
-    <button *ngIf="authUser" md-menu-item class="user-actions">
-      {{authUser.auth.displayName}}
-      <img src="{{authUser.auth.photoURL}}">
+    <button md-menu-item *ngIf="authUser">
+      <div class="user-actions">
+        <span>{{authUser.auth.displayName}} </span>
+        <img src="{{authUser.auth.photoURL}}">
+      </div>
     </button> 
   </md-menu>
   <md-menu #menu="mdMenu">
@@ -31,9 +33,9 @@
 
 <md-tab-group>
   <md-tab label="Mapa">
-    <app-map></app-map>
+    <app-map [vbData]="vbData"></app-map>
   </md-tab>
   <md-tab label="Configuración">
-    <app-valenbisi-list></app-valenbisi-list>
+    <app-valenbisi-list [vbData]="vbData"></app-valenbisi-list>
   </md-tab>
 </md-tab-group>

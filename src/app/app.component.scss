@@ -6,9 +6,31 @@
   flex : 1 1 auto;
 }
 
-.user-actions img {
-  max-height: 30px;
-  float: right;
+.user-actions {
+  flex-direction: row-reverse;
+  display: flex;
+}
+
+.user-actions span {
+  //float : left;
+  flex : 1 1 auto;
+  align-self: center;
+  margin : 2px;
+}
+
+.mat-icon-button img {
+  height: 32px;
+  //float: right;
   border-radius: 15px;
   margin-right : 1px;
+  margin-top : -4px;
+}
+
+.user-actions img {
+  max-height: 32px;
+  //float: right;
+  border-radius: 15px;
+  margin-right : 1px;
+  align-self: center;
+  flex : 1 1 auto;
 }

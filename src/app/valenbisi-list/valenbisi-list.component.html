@@ -1,6 +1,17 @@
-<md-list>
- <md-list-item *ngFor="let feature of features">
-   {{feature.properties.address}}
-   <span>{{feature.properties.free}}/{{feature.properties.total}}</span>
- </md-list-item>
-</md-list>
+<div *ngIf="vbData">
+  <div *ngFor="let feature of vbData.features">
+    <md-card>
+      <md-card-title>{{feature.properties.name}}</md-card-title>
+      <md-card-subtitle>{{feature.properties.address}}</md-card-subtitle>
+      <md-card-content>
+        <p>Paradas libres       : {{feature.properties.available}}/{{feature.properties.total}}<p>
+        <p>Bornes libres        : {{feature.properties.free}}/{{feature.properties.total}}<p>
+        <p>Última actualización : {{feature.properties.updated_at}} <p>
+      </md-card-content>
+      <md-card-actions>
+        <button md-raised-button color="primary">LIKE</button>
+        <button md-raised-button color="warn">COMENTARIOS</button>
+      </md-card-actions>
+    </md-card>
+  </div>
+</div>
