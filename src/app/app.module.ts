@@ -16,12 +16,14 @@ import { MapComponent } from './map/map.component';
 
 import fireConfig from './firebase.config';
 import { ValenbisiListComponent } from './valenbisi-list/valenbisi-list.component';
+import { ContainerComponent } from './container/container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    ValenbisiListComponent
+    ValenbisiListComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,

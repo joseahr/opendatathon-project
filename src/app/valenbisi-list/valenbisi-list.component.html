@@ -4,13 +4,16 @@
       <md-card-title>{{feature.properties.name}}</md-card-title>
       <md-card-subtitle>{{feature.properties.address}}</md-card-subtitle>
       <md-card-content>
-        <p>Paradas libres       : {{feature.properties.available}}/{{feature.properties.total}}<p>
-        <p>Bornes libres        : {{feature.properties.free}}/{{feature.properties.total}}<p>
-        <p>Última actualización : {{feature.properties.updated_at}} <p>
+        <md-chip-list>
+          <md-chip color="primary">Paradas libres       : {{feature.properties.available}}/{{feature.properties.total}}</md-chip>
+          <md-chip color="primary">Bornes libres        : {{feature.properties.free}}/{{feature.properties.total}}</md-chip>
+          <md-chip color="primary">Última actualización : {{feature.properties.updated_at}} </md-chip>
+        </md-chip-list>
       </md-card-content>
       <md-card-actions>
         <button md-raised-button color="primary">LIKE</button>
         <button md-raised-button color="warn">COMENTARIOS</button>
+        <button md-raised-button color="warn" (click)="showMap(feature)">VER EN MAPA</button>
       </md-card-actions>
     </md-card>
   </div>

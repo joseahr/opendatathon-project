@@ -32,6 +32,8 @@ export class MapComponent {
 
   @Input('vbData') vbData;
 
+  @Input('zoomToParada') zoomToParada;
+
   constructor() {
     this.geoJSONParser = new ol.format.GeoJSON({
       defaultDataProjection : 'EPSG:25830', 
@@ -79,16 +81,28 @@ export class MapComponent {
 
   }
 
-  ngOnChanges(){
-    console.log('changeees', this.vbData)
-    if(!this.vbLayer){
-      return;
+  ngOnChanges(changes){
+    console.log(changes, 'changesssssss')
+    if(changes['vbData'] !== undefined){
+      if(!this.vbLayer){
+        return;
+      }
+      this.vbLayer.getSource().clear();
+      this.vbLayer.getSource().refresh();
+  
+      let features = this.geoJSONParser.readFeatures(this.vbData);
+      this.vbLayer.getSource().addFeatures(features);
     }
-    this.vbLayer.getSource().clear();
-    this.vbLayer.getSource().refresh();
+    
+    if(changes['zoomToParada'] !== undefined){
+      if(this.zoomToParada){
+        let parada = this.zoomToParada;
+        console.log(parada, 'aaa');
+        this.map.getView().setCenter(parada.geometry.coordinates);
+        this.map.getView().setZoom(15)
+      }
+    }
 
-    let features = this.geoJSONParser.readFeatures(this.vbData);
-    this.vbLayer.getSource().addFeatures(features);
   }
   
 }

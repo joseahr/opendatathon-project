@@ -1,0 +1,12 @@
+<md-tab-group [selectedIndex]="tabDefault" (selectedIndexChange)="onChangeTab($event);">
+  <md-tab label="Mapa">
+    <app-map [vbData] = "vbData" [zoomToParada] = "zoomToParada"></app-map>
+  </md-tab>
+  <md-tab label="Configuración">
+    <app-valenbisi-list 
+      [vbData] = "vbData"
+      (goToMapFromList) = "zoomToParadaFromList($event)"
+    >
+    </app-valenbisi-list>
+  </md-tab>
+</md-tab-group>
